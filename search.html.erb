@@ -1,0 +1,22 @@
+<div class="card-deck text-center" id="card-deck"> 
+  <% if @movies %>
+  <% @movies.each do |m| %>
+      <div class="card">
+        <img src= "<%= m["Poster"] %>" alt="No poster found." class="card-img-top">
+
+        <div class="card-body">
+          <h5 class="card-title"><%= m["Title"] %></h5>
+          <p class="card-text"><%= m["Year"] %></p>
+        </div>
+
+        <div class="card-footer">
+          <div class="btn-top">
+            <span class="btn-group">
+              <%= button_to "Add Movie To List", class: 'btn btn-primary btn-sm btn-space' %>
+            </span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

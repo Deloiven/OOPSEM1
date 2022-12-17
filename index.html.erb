@@ -1,0 +1,16 @@
+<div class="btn-top">
+<button class="btn btn-primary btn-sm add-movie" movie-id="m['imdbID']" type="button" data-toggle="modal" data-target="#movielistmodal">Add Movie To List</button>
+</div>
+<div class="modal-body">
+<%= form_for @movie, method: :post, url: 'add_api_movie_to_list' do |f| %>
+  <%= hidden_field_tag :movie_id, { id: "movie-id" } %>
+  <% @list.each do |list| %>
+    <%= f.label :name, list.name %>
+    <%= f.radio_button :list_ids, list.id %>
+  <% end %>
+  <%= f.submit class: 'btn btn-primary btn-space btn-sm' %>
+<% end %>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>
